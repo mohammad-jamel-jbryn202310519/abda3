@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UniversityType {
+  PRIVATE
+  GOVERNMENT
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteSettings {
+  id                  String   @id @default(cuid())
+  siteNameArabic      String
+  siteNameEnglish     String
+  logoUrl             String
+  heroTitleArabic     String
+  heroTitleEnglish    String
+  heroDescriptionArabic String
+  heroDescriptionEnglish String
+  contactEmail        String
+  whatsappNumber      String
+  phoneNumber         String
+  googleMapsUrl       String
+  socialLinks         Json
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model University {
+  id                String        @id @default(cuid())
+  nameArabic        String
+  nameEnglish       String
+  type              UniversityType
+  imageUrl          String?
+  logoUrl           String?
+  gallery           String[]
+  location          String
+  governorate       String?
+  googleMapsUrl     String?
+  worldRanking      Int?
+  tuitionFees       String?
+  degrees           String[]
+  requiredDocuments String[]
+  feesLastUpdated   DateTime?
+  requirements      Requirement[]
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+model Service {
+  id              String   @id @default(cuid())
+  titleArabic     String
+  titleEnglish    String
+  descriptionArabic String
+  descriptionEnglish String
+  icon            String
+  sortOrder       Int      @default(0)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Requirement {
+  id           String     @id @default(cuid())
+  university   University @relation(fields: [universityId], references: [id])
+  universityId String
+  nameArabic   String
+  nameEnglish  String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
