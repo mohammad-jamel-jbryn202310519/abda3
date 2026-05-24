@@ -85,11 +85,7 @@ async function main() {
         nameEnglish: PSUT_DATA.universityNameEn,
         logoUrl: PSUT_DATA.logoUrl,
         location: "Amman, Jordan",
-        type: "PRIVATE",
-        foundedYear: PSUT_DATA.foundedYear,
-        description: "جامعة الأميرة سمية للتكنولوجيا (PSUT) جامعة خاصة أردنية متخصصة في التكنولوجيا، تأسست عام 1991.",
-        degrees: ["BACHELOR", "MASTER"],
-        websiteUrl: "https://www.psut.edu.jo"
+        type: "PRIVATE"
       }
     });
   }

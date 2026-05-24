@@ -143,11 +143,7 @@ async function main() {
         nameEnglish: MEU_DATA.universityNameEn,
         logoUrl: MEU_DATA.logoUrl,
         location: "Amman, Jordan",
-        type: "PRIVATE",
-        foundedYear: MEU_DATA.foundedYear,
-        description: "جامعة الشرق الأوسط (MEU) جامعة خاصة أردنية.",
-        degrees: ["BACHELOR", "MASTER", "HIGH_DIPLOMA"],
-        websiteUrl: "https://www.meu.edu.jo"
+        type: "PRIVATE"
       }
     });
   }

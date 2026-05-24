@@ -144,11 +144,7 @@ async function main() {
         nameEnglish: ZUJ_DATA.universityNameEn,
         logoUrl: ZUJ_DATA.logoUrl,
         location: "Amman, Jordan",
-        type: "PRIVATE",
-        foundedYear: ZUJ_DATA.foundedYear,
-        description: "جامعة الزيتونة الأردنية (ZUJ) جامعة خاصة أردنية.",
-        degrees: ["BACHELOR", "MASTER"],
-        websiteUrl: "https://www.zuj.edu.jo"
+        type: "PRIVATE"
       }
     });
   }
