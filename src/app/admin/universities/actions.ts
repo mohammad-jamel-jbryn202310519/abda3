@@ -18,7 +18,9 @@ export async function createUniversity(data: any) {
         logoUrl: data.logoUrl,
         gallery: data.gallery || [],
         degrees: data.degrees || [],
-        requiredDocuments: data.requiredDocuments || []
+        requiredDocuments: data.requiredDocuments || [],
+        requiredDocumentsJordanian: data.requiredDocumentsJordanian || [],
+        requiredDocumentsInternational: data.requiredDocumentsInternational || []
       }
     });
     revalidatePath("/admin/universities");
@@ -46,7 +48,9 @@ export async function updateUniversity(id: string, data: any) {
         logoUrl: data.logoUrl,
         gallery: data.gallery || [],
         degrees: data.degrees || [],
-        requiredDocuments: data.requiredDocuments || []
+        requiredDocuments: data.requiredDocuments || [],
+        requiredDocumentsJordanian: data.requiredDocumentsJordanian || [],
+        requiredDocumentsInternational: data.requiredDocumentsInternational || []
       }
     });
     revalidatePath("/admin/universities");

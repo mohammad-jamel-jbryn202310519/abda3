@@ -18,17 +18,16 @@ export default function Navbar({ locale }: NavbarProps) {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="container flex items-center justify-between py-4">
         {/* Logo */}
-        <Link href={`/${locale}`} className="text-xl font-semibold text-brand-600 shrink-0">
-          Ibda3 Al-Khalij
+        <Link href={`/${locale}`} className="flex items-center gap-3 shrink-0 py-1">
+          <img src="/logo.png" alt="Ibda3 Al-Khalij Logo" className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+          <span className="text-xl font-extrabold text-slate-800 tracking-wide hidden xs:block">إبداع الخليج</span>
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden gap-6 lg:flex text-slate-700 items-center mx-4">
-          <Link href={`/${locale}`} className="transition hover:text-brand-600">Home</Link>
-          <Link href={`/${locale}/services`} className="transition hover:text-brand-600">Services</Link>
-          <Link href={`/${locale}/universities/private`} className="transition hover:text-brand-600">Private</Link>
-          <Link href={`/${locale}/universities/government`} className="transition hover:text-brand-600">Government</Link>
-          <Link href={`/${locale}/contact`} className="transition hover:text-brand-600">Contact</Link>
+        <nav className="hidden gap-6 lg:flex text-slate-700 items-center mx-4 font-bold">
+          <Link href={`/${locale}`} className="transition hover:text-brand-600">
+            {locale === "ar" ? "الرئيسية" : "Home"}
+          </Link>
         </nav>
 
         {/* Right Section: Back/Forward, Search, Lang, Admin */}

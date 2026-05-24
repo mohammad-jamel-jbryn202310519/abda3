@@ -30,3 +30,46 @@ img {
 .container {
   @apply mx-auto px-4 sm:px-6 lg:px-8;
 }
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-60px) scale(1.15) rotate(180deg);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(0px) scale(1) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #ffffff, #f8fafc, #f8fafc, #fdfdfd);
+  background-size: 400% 400%;
+  animation: moveBackground 20s ease infinite;
+}
+
+.floating-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(226, 232, 240, 0.8) 0%, rgba(226, 232, 240, 0) 75%);
+  filter: blur(50px);
+  pointer-events: none;
+  animation: floatBubble 25s ease-in-out infinite;
+}
+

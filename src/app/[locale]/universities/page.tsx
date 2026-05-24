@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 
 export default async function UniversitiesPage({ params }: { params: { locale: string } }) {
   const universities = await prisma.university.findMany({ 
-    orderBy: { nameArabic: "asc" } 
+    orderBy: { sortOrder: "asc" } 
   });
 
   return (

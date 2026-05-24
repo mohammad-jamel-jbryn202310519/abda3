@@ -51,13 +51,63 @@ model University {
   governorate       String?
   googleMapsUrl     String?
   worldRanking      Int?
+  sortOrder         Int           @default(999)
   tuitionFees       String?
   degrees           String[]
-  requiredDocuments String[]
+  requiredDocuments              String[]
+  requiredDocumentsJordanian    String[]
+  requiredDocumentsInternational String[]
   feesLastUpdated   DateTime?
   requirements      Requirement[]
+  faculties         Faculty[]
+  semesterFees      SemesterFee[]
   createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
+}
+
+model Faculty {
+  id           String     @id @default(cuid())
+  nameArabic   String
+  nameEnglish  String
+  university   University @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  universityId String
+  programs     Program[]
+  sortOrder    Int        @default(0)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Program {
+  id                      String   @id @default(cuid())
+  nameArabic              String
+  nameEnglish             String
+  degree                  String   // BACHELOR | MASTER | PHD | HIGH_DIPLOMA
+  creditHours             Int?
+  faculty                 Faculty  @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  facultyId               String
+  jordanianFeePerHour     Float?
+  internationalFeePerHour Float?
+  internationalFeeUnit    String   @default("USD")
+  sortOrder               Int      @default(0)
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
+
+model SemesterFee {
+  id                  String     @id @default(cuid())
+  university          University @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  universityId        String
+  degreeLevel         String     // BACHELOR | BACHELOR_DENTISTRY | MASTER | PHD
+  feeType             String     // STANDARD_SEMESTER | SUMMER_SEMESTER | ADMISSION | GRADUATION | OTHER
+  labelArabic         String
+  labelEnglish        String     @default("")
+  jordanianAmount     Float?
+  internationalAmount Float?
+  internationalUnit   String     @default("USD")
+  isRefundable        Boolean    @default(false)
+  sortOrder           Int        @default(0)
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
 }
 
 model Service {

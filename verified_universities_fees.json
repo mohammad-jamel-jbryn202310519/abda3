@@ -1,0 +1,1369 @@
+[
+  {
+    "universityNameAr": "جامعة عمان الأهلية",
+    "universityNameEn": "Al-Ahliyya Amman University",
+    "type": "PRIVATE",
+    "academicYear": "2025/2026",
+    "overview": "جامعة عمان الأهلية هي الجامعة الخاصة الأولى في الأردن والشرق الأوسط. تضم 13 كلية وأكثر من 60 تخصصاً. تصنيف QS العالمي: 761-770، تصنيف Times Higher Education: 601-800.",
+    "registrationAndServiceFees": {
+      "bachelor": {
+        "jordanian_jod": {
+          "standardSemester": 375,
+          "summerSemester": 250,
+          "admissionOneTime": 75,
+          "placementExams": 75,
+          "equivalenceFee": 75,
+          "graduationFee": 150
+        },
+        "international_usd": {
+          "standardSemester": 575,
+          "summerSemester": 375,
+          "admissionOneTime": 120,
+          "placementExams": 120,
+          "equivalenceFee": 100,
+          "graduationFee": 225
+        }
+      },
+      "bachelor_dentistry": {
+        "jordanian_jod": {
+          "standardSemester": 500,
+          "summerSemester": 350,
+          "admissionOneTime": 150,
+          "placementExams": 100,
+          "equivalenceFee": 100,
+          "clinicalSemester345": 300,
+          "graduationFee": 200
+        },
+        "international_usd": {
+          "standardSemester": 750,
+          "summerSemester": 600,
+          "admissionOneTime": 300,
+          "placementExams": 150,
+          "equivalenceFee": 200,
+          "clinicalSemester345": 450,
+          "graduationFee": 350
+        }
+      },
+      "master": {
+        "jordanian_jod": {
+          "admissionApplication": 150,
+          "standardSemester": 425,
+          "comprehensiveExam": 350,
+          "summerSemester": 250,
+          "thesisRegistrationFirstTime": 250,
+          "thesisContinuation": 425,
+          "graduationFee": 200
+        },
+        "international_jod": {
+          "admissionApplication": 200,
+          "standardSemester": 450,
+          "comprehensiveExam": 450,
+          "summerSemester": 350,
+          "thesisRegistrationFirstTime": 300,
+          "thesisContinuation": 450,
+          "graduationFee": 200
+        }
+      }
+    },
+    "faculties": [
+      {
+        "facultyNameAr": "كلية الآداب والعلوم",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "اللغة الإنجليزية وآدابها",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 85,
+              "international_usd": 140
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "اللغة الإنجليزية والترجمة",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 85,
+              "international_usd": 140
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "اللغة الإنجليزية التطبيقية",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 85,
+              "international_usd": 140
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "اللغتان الألمانية-الإنجليزية",
+            "creditHours": 135,
+            "fees": {
+              "jordanian_jod": 90,
+              "international_usd": 150
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "اللغتان الصينية-الإنجليزية",
+            "creditHours": 135,
+            "fees": {
+              "jordanian_jod": 90,
+              "international_usd": 150
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "علم النفس السريري",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 85,
+              "international_usd": 140
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "علم النفس الإكلينيكي",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "اللغة الإنجليزية وآدابها",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 150,
+              "international_jod": 210
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الحقوق",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الحقوق",
+            "creditHours": 141,
+            "fees": {
+              "jordanian_jod": 95,
+              "international_usd": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الحقوق",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 150,
+              "international_jod": 235
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "التحكيم في عقود الإنشاءات",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "القانون الجزائي",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 150,
+              "international_jod": 235
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "القانون الطبي والأخلاقيات",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الأعمال",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "إدارة الأعمال",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التسويق الإلكتروني والتواصل الرقمي",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التكنولوجيا المالية",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الأعمال والتجارة الإلكترونية",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "تكنولوجيا تحليل الأعمال",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "المحاسبة الدولية والتدقيق",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "إدارة الأزمات والكوارث",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "إدارة سلاسل التوريد واللوجستيات الرقمية",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "إدارة الأعمال MBA",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الإدارة الحكومية",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "تكنولوجيا الأعمال",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الهندسة",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة الاتصالات والحاسوب",
+            "creditHours": 160,
+            "fees": {
+              "jordanian_jod": 125,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الهندسة الطبية",
+            "creditHours": 160,
+            "fees": {
+              "jordanian_jod": 125,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الهندسة المدنية",
+            "creditHours": 160,
+            "fees": {
+              "jordanian_jod": 125,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الهندسة الكهربائية",
+            "creditHours": 160,
+            "fees": {
+              "jordanian_jod": 125,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة الروبوتات والذكاء الاصطناعي",
+            "creditHours": 160,
+            "fees": {
+              "jordanian_jod": 130,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة المركبات الكهربائية",
+            "creditHours": 160,
+            "fees": {
+              "jordanian_jod": 125,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الهندسة الصناعية",
+            "creditHours": 160,
+            "fees": {
+              "jordanian_jod": 125,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "هندسة الاتصالات والحاسوب",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "هندسة الإنشاءات وإدارة المشاريع",
+            "creditHours": 34,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الهندسة الطبية الحيوية",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية تقنية المعلومات",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "علم الحاسوب",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 110,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة البرمجيات",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 110,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الشبكات والأمن السيبراني",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 110,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "علم البيانات والذكاء الاصطناعي",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 110,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الأمن السيبراني",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 250,
+              "international_jod": 300
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الصيدلة",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الصيدلة",
+            "creditHours": 162,
+            "fees": {
+              "jordanian_jod": 130,
+              "international_usd": 230
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "العلوم الصيدلانية",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية العلوم الطبية المساندة",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "العلوم الطبية المخبرية",
+            "creditHours": 137,
+            "fees": {
+              "jordanian_jod": 105,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "السمع والنطق",
+            "creditHours": 142,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "علم البصريات",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 80,
+              "international_usd": 135
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "علم التجميل",
+            "creditHours": 139,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "العلاج الطبيعي",
+            "creditHours": 134,
+            "fees": {
+              "jordanian_jod": 110,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التكنولوجيا الحيوية الصيدلانية",
+            "creditHours": 134,
+            "fees": {
+              "jordanian_jod": 105,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "العلاج الوظيفي",
+            "creditHours": 134,
+            "fees": {
+              "jordanian_jod": 110,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "العلوم الطبية المخبرية",
+            "creditHours": 36,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "علوم واضطرابات التواصل",
+            "creditHours": 36,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "علوم السمع",
+            "creditHours": 36,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية التمريض",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التمريض",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "علوم التمريض / مسار الرعاية الحثيثة القلبية والتنفسية",
+            "creditHours": 34,
+            "fees": {
+              "jordanian_jod": 225,
+              "international_jod": 275
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "علوم التمريض / مسار الرعاية الأولية",
+            "creditHours": 34,
+            "fees": {
+              "jordanian_jod": 225,
+              "international_jod": 275
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية التكنولوجيا الزراعية",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التكنولوجيا الزراعية",
+            "creditHours": 140,
+            "fees": {
+              "jordanian_jod": 90,
+              "international_usd": 150
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الحيوية وهندسة الجينات",
+            "creditHours": 140,
+            "fees": {
+              "jordanian_jod": 90,
+              "international_usd": 150
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية العمارة والتصميم",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة العمارة",
+            "creditHours": 135,
+            "fees": {
+              "jordanian_jod": 125,
+              "international_usd": 200
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التصميم الداخلي",
+            "creditHours": 135,
+            "fees": {
+              "jordanian_jod": 105,
+              "international_usd": 170
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الوسائط المتعددة والتصميم الجرافيكي",
+            "creditHours": 135,
+            "fees": {
+              "jordanian_jod": 105,
+              "international_usd": 170
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "تصميم وتطوير الألعاب الرقمية",
+            "creditHours": 135,
+            "fees": {
+              "jordanian_jod": 110,
+              "international_usd": 175
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "التصميم الداخلي",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 200,
+              "international_jod": 275
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية العلوم التربوية",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التربية البدنية والصحية",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 70,
+              "international_usd": 120
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "علوم الرياضة",
+            "creditHours": 33,
+            "fees": {
+              "jordanian_jod": 150,
+              "international_jod": 195
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية إدارة الضيافة والسياحة",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "إدارة الضيافة وفنون الطهي",
+            "creditHours": 132,
+            "fees": {
+              "jordanian_jod": 100,
+              "international_usd": 165
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية طب الأسنان",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "دكتور في طب الأسنان",
+            "creditHours": 200,
+            "fees": {
+              "jordanian_jod": 390,
+              "international_usd": 600
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "تكنولوجيا صناعة الأسنان",
+            "creditHours": 135,
+            "fees": {
+              "jordanian_jod": 130,
+              "international_usd": 210
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "universityNameAr": "جامعة الزرقاء",
+    "universityNameEn": "Zarqa University",
+    "type": "PRIVATE",
+    "academicYear": "2025/2026",
+    "overview": "جامعة الزرقاء جامعة خاصة أردنية تضم 15 كلية و58 تخصصاً. آلية احتساب الرسوم: سعر الساعة المعتمدة × عدد الساعات + رسوم التسجيل الفصلية.",
+    "registrationAndServiceFees": {
+      "bachelor": {
+        "all_jod": {
+          "standardSemester": 390,
+          "summerSemester": 250,
+          "admissionOneTime": 60,
+          "lateRegistrationPenalty": 30,
+          "refundableInsurance": 200,
+          "eLearningPerSemester": 50
+        }
+      },
+      "bachelor_dentistry": {
+        "all_jod": {
+          "standardSemester": 600,
+          "summerSemester": 600,
+          "admissionOneTime": 500,
+          "refundableInsurance": 250,
+          "graduationFee": 500,
+          "eLearningPerSemester": 50
+        }
+      },
+      "master": {
+        "all_jod": {
+          "standardSemester": 390,
+          "summerSemester": 250,
+          "admissionOneTime": 60,
+          "refundableInsurance": 200,
+          "comprehensiveExam": 300,
+          "thesisDiscussion": 350,
+          "eLearningPerSemester": 50
+        }
+      },
+      "otherFees": {
+        "graduationCertificate": 150,
+        "transcriptDocument": 10,
+        "studentProofDocument": 8
+      }
+    },
+    "faculties": [
+      {
+        "facultyNameAr": "كلية الشريعة",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الفقه وأصوله",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 30
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "أصول الدين",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 30
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الآداب",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "اللغة العربية وآدابها",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 55
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "اللغة الإنجليزية وآدابها",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 55
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الترجمة",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 55
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "اللغة الإنجليزية التطبيقية",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 60
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التاريخ",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 55
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية العلوم",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الرياضيات",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 55
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الفيزياء",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 60
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية تكنولوجيا المعلومات",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة البرمجيات",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 80
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "علم الحاسوب",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 65
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الذكاء الاصطناعي",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 65
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الأمن السيبراني",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 65
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الاقتصاد والعلوم الإدارية",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "تكنولوجيا معلومات الأعمال",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 60
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "المحاسبة",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 80
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "إدارة الأعمال",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 65
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التكنولوجيا المالية",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 65
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التسويق الإلكتروني والتواصل الاجتماعي",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 60
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الاقتصاد",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 50
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "نظم المعلومات المحاسبية",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 60
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "المصارف الإسلامية",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 60
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية العلوم التربوية",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "معلم الصف",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 60
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الطفولة المبكرة",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 55
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التربية الرياضية",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 60
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الحقوق",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الحقوق",
+            "creditHours": 141,
+            "fees": {
+              "all_jod": 60
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية العلوم الطبية المساندة",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التحاليل الطبية",
+            "creditHours": 136,
+            "fees": {
+              "all_jod": 70
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "السمع والنطق التطبيقي",
+            "creditHours": 136,
+            "fees": {
+              "all_jod": 70
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "تكنولوجيا التغذية العلاجية والحمية",
+            "creditHours": 136,
+            "fees": {
+              "all_jod": 60
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "تقنيات الأشعة الطبية",
+            "creditHours": 136,
+            "fees": {
+              "all_jod": 100
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "العلاج الطبيعي",
+            "creditHours": 136,
+            "fees": {
+              "all_jod": 80
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية التمريض",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التمريض",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 70
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الهندسة التكنولوجية",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الهندسة المدنية",
+            "creditHours": 162,
+            "fees": {
+              "all_jod": 120
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة العمارة",
+            "creditHours": 167,
+            "fees": {
+              "all_jod": 120
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة كهربائية",
+            "creditHours": 160,
+            "fees": {
+              "all_jod": 110
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الهندسة الميكانيكية",
+            "creditHours": 160,
+            "fees": {
+              "all_jod": 110
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "هندسة الطاقة",
+            "creditHours": 160,
+            "fees": {
+              "all_jod": 120
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الصيدلة",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الصيدلة",
+            "creditHours": 165,
+            "fees": {
+              "all_jod": 120
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الفنون والتصميم",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التصميم الجرافيكي",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 90
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "التصميم الداخلي",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 90
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية الإعلام",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الصحافة والإعلام الرقمي",
+            "creditHours": 132,
+            "fees": {
+              "all_jod": 80
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "الإذاعة والتلفزيون",
+            "creditHours": 135,
+            "fees": {
+              "all_jod": 80
+            }
+          },
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "العلاقات العامة والإعلان",
+            "creditHours": 135,
+            "fees": {
+              "all_jod": 80
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "كلية طب الأسنان",
+        "programs": [
+          {
+            "degree": "BACHELOR",
+            "majorNameAr": "دكتور طب أسنان",
+            "creditHours": 208,
+            "fees": {
+              "all_jod": 290
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "الدراسات العليا (الماجستير)",
+        "programs": [
+          {
+            "degree": "MASTER",
+            "majorNameAr": "اللغة الإنجليزية أدب",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "اللغة الإنجليزية لغويات",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "علم الحاسوب",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "هندسة البرمجيات",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "رياضيات",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "تسويق",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "القانون",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الإعلام الرقمي",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الفيزياء",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "المناهج والتعلم الإلكتروني",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "القيادة التربوية",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 150
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الأمن السيبراني",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 200
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "محاسبة",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 200
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "إدارة أعمال MBA",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 200
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الإدارة في التمريض",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 200
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "العلوم الصيدلانية",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 200
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "العلوم الطبية المخبرية",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 200
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "إدارة المشاريع الهندسية",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 200
+            }
+          },
+          {
+            "degree": "MASTER",
+            "majorNameAr": "الصناعات الدوائية",
+            "creditHours": 33,
+            "fees": {
+              "all_jod": 200
+            }
+          }
+        ]
+      },
+      {
+        "facultyNameAr": "الدبلوم العالي",
+        "programs": [
+          {
+            "degree": "HIGH_DIPLOMA",
+            "majorNameAr": "التربية",
+            "creditHours": 27,
+            "fees": {
+              "all_jod": 60
+            }
+          },
+          {
+            "degree": "HIGH_DIPLOMA",
+            "majorNameAr": "المحاسبة الضريبية",
+            "creditHours": 27,
+            "fees": {
+              "all_jod": 60
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Edit2, Trash2 } from "lucide-react";
+import { Plus, Edit2, Trash2, BookOpen } from "lucide-react";
+import Link from "next/link";
 import UniversityFormModal from "./UniversityFormModal";
 import { createUniversity, updateUniversity, deleteUniversity } from "./actions";
 
@@ -93,6 +94,7 @@ export default function UniversitiesAdminClient({ initialData }: { initialData: 
                 <td className="p-4 text-slate-600">{uni.governorate || uni.location}</td>
                 <td className="p-4">
                   <div className="flex items-center justify-center gap-2">
+                    <Link href={`/admin/universities/${uni.id}/programs`} className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition" title="إدارة التخصصات والرسوم"><BookOpen size={18} /></Link>
                     <button onClick={() => handleOpenEdit(uni)} className="p-2 text-brand-600 hover:bg-brand-50 rounded-lg transition"><Edit2 size={18} /></button>
                     <button onClick={() => handleDelete(uni.id)} className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"><Trash2 size={18} /></button>
                   </div>

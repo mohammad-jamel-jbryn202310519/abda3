@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import UniversitiesAdminClient from "./UniversitiesAdminClient";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminUniversitiesPage() {
   const universities = await prisma.university.findMany({
     orderBy: { createdAt: "desc" }

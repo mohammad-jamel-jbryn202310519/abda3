@@ -26,10 +26,14 @@ export default function UniversityFormModal({
     logoUrl: "",
     gallery: [] as string[],
     degrees: [] as string[],
-    requiredDocuments: [] as string[]
+    requiredDocuments: [] as string[],
+    requiredDocumentsJordanian: [] as string[],
+    requiredDocumentsInternational: [] as string[]
   });
 
   const [reqDocsText, setReqDocsText] = useState(initialData?.requiredDocuments?.join("\n") || "");
+  const [reqDocsJorText, setReqDocsJorText] = useState(initialData?.requiredDocumentsJordanian?.join("\n") || "");
+  const [reqDocsIntText, setReqDocsIntText] = useState(initialData?.requiredDocumentsInternational?.join("\n") || "");
   const [logoFile, setLogoFile] = useState<File | null>(null);
   const [galleryFiles, setGalleryFiles] = useState<File[]>([]);
 
@@ -64,6 +68,18 @@ export default function UniversityFormModal({
         dataToSubmit.requiredDocuments = reqDocsText.split("\n").map((s: string) => s.trim()).filter(Boolean);
       } else {
         dataToSubmit.requiredDocuments = [];
+      }
+
+      if (reqDocsJorText) {
+        dataToSubmit.requiredDocumentsJordanian = reqDocsJorText.split("\n").map((s: string) => s.trim()).filter(Boolean);
+      } else {
+        dataToSubmit.requiredDocumentsJordanian = [];
+      }
+
+      if (reqDocsIntText) {
+        dataToSubmit.requiredDocumentsInternational = reqDocsIntText.split("\n").map((s: string) => s.trim()).filter(Boolean);
+      } else {
+        dataToSubmit.requiredDocumentsInternational = [];
       }
 
       if (logoFile) {
@@ -155,8 +171,22 @@ export default function UniversityFormModal({
 
           <div className="md:col-span-2">
             <label className="block text-sm font-semibold text-slate-700">
-              الأوراق المطلوبة للتسجيل (كل ورقة في سطر جديد)
-              <textarea rows={4} value={reqDocsText} onChange={e => setReqDocsText(e.target.value)} className="mt-2 w-full px-4 py-2 border border-slate-200 rounded-xl outline-none focus:border-brand-500" placeholder="صورة الجواز&#10;شهادة الثانوية..."></textarea>
+              الأوراق المطلوبة للطلبة الأردنيين (كل ورقة في سطر جديد) *
+              <textarea rows={4} value={reqDocsJorText} onChange={e => setReqDocsJorText(e.target.value)} className="mt-2 w-full px-4 py-2 border border-slate-200 rounded-xl outline-none focus:border-brand-500" placeholder="كشف علامات الثانوية العامة الأصلي أو المصدق (التوجيهي)..."></textarea>
+            </label>
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="block text-sm font-semibold text-slate-700">
+              الأوراق المطلوبة للطلبة الدوليين/الوافدين (كل ورقة في سطر جديد) *
+              <textarea rows={4} value={reqDocsIntText} onChange={e => setReqDocsIntText(e.target.value)} className="mt-2 w-full px-4 py-2 border border-slate-200 rounded-xl outline-none focus:border-brand-500" placeholder="صورة مصدقة عن جواز السفر..."></textarea>
+            </label>
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="block text-sm font-semibold text-slate-700">
+              الأوراق المطلوبة العامة/الإضافية (اختياري)
+              <textarea rows={3} value={reqDocsText} onChange={e => setReqDocsText(e.target.value)} className="mt-2 w-full px-4 py-2 border border-slate-200 rounded-xl outline-none focus:border-brand-500" placeholder="أوراق إضافية..."></textarea>
             </label>
           </div>
 
