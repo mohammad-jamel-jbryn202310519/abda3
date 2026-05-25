@@ -1,19 +1,10 @@
-import { prisma } from "@/lib/prisma";
+import { getCachedUniversityDetails } from "@/lib/cache";
 import Navbar from "@/components/Navbar";
 import { notFound } from "next/navigation";
 import UniversityDetailClient from "@/components/UniversityDetailClient";
 
 export default async function UniversityDetailsPage({ params }: { params: { locale: string, id: string } }) {
-  const uni = await prisma.university.findUnique({
-    where: { id: params.id },
-    include: {
-      faculties: {
-        include: { programs: { orderBy: { sortOrder: "asc" } } },
-        orderBy: { sortOrder: "asc" }
-      },
-      semesterFees: { orderBy: [{ degreeLevel: "asc" }, { sortOrder: "asc" }] }
-    }
-  });
+  const uni = await getCachedUniversityDetails(params.id);
 
   if (!uni) notFound();
 

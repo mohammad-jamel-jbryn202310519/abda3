@@ -57,6 +57,9 @@ model University {
   requiredDocuments              String[]
   requiredDocumentsJordanian    String[]
   requiredDocumentsInternational String[]
+  description       String?
+  foundedYear       Int?
+  websiteUrl        String?
   feesLastUpdated   DateTime?
   requirements      Requirement[]
   faculties         Faculty[]
@@ -86,11 +89,28 @@ model Program {
   faculty                 Faculty  @relation(fields: [facultyId], references: [id], onDelete: Cascade)
   facultyId               String
   jordanianFeePerHour     Float?
+  parallelFeePerHour      Float?
   internationalFeePerHour Float?
   internationalFeeUnit    String   @default("USD")
   sortOrder               Int      @default(0)
   createdAt               DateTime @default(now())
   updatedAt               DateTime @updatedAt
+  discounts               Discount[]
+}
+
+model Discount {
+  id              String   @id @default(cuid())
+  program         Program  @relation(fields: [programId], references: [id], onDelete: Cascade)
+  programId       String
+  minGPA          Float    // e.g. 60.0
+  maxGPA          Float    // e.g. 89.9
+  discountAmount  Float    // Amount reduced per credit hour (in JOD) 
+  discountType    String   @default("AMOUNT") // "AMOUNT" (flat JOD off) or "PERCENTAGE"
+  labelArabic     String?  // e.g. "خصم للمعدل 60-89.9%"
+  appliesTo       String   @default("JORDANIAN") // "JORDANIAN", "INTERNATIONAL", "BOTH"
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }
 
 model SemesterFee {

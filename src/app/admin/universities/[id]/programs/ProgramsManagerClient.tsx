@@ -2,13 +2,17 @@
 
 import { useState } from "react";
 import {
-  Plus, Edit2, Trash2, ChevronDown, ChevronUp, X, Check, BookOpen, DollarSign, Building2
+  Plus, Edit2, Trash2, ChevronDown, ChevronUp, X, Check, BookOpen, DollarSign, Building2, Tag
 } from "lucide-react";
+import DiscountForm, { Discount } from "./DiscountForm";
 
+// Discount type imported
 type Program = {
   id: string; nameArabic: string; nameEnglish: string; degree: string;
   creditHours: number | null; jordanianFeePerHour: number | null;
+  parallelFeePerHour: number | null;
   internationalFeePerHour: number | null; internationalFeeUnit: string;
+  discounts?: Discount[];
 };
 type Faculty = { id: string; nameArabic: string; nameEnglish: string; programs: Program[]; };
 type SemesterFee = {
@@ -30,6 +34,7 @@ function ProgramForm({ initial, onSave, onCancel }: { initial?: Partial<Program>
     nameArabic: initial?.nameArabic || "", nameEnglish: initial?.nameEnglish || "",
     degree: initial?.degree || "BACHELOR", creditHours: initial?.creditHours?.toString() || "",
     jordanianFeePerHour: initial?.jordanianFeePerHour?.toString() || "",
+    parallelFeePerHour: initial?.parallelFeePerHour?.toString() || "",
     internationalFeePerHour: initial?.internationalFeePerHour?.toString() || "",
     internationalFeeUnit: initial?.internationalFeeUnit || "USD",
   });
@@ -41,16 +46,18 @@ function ProgramForm({ initial, onSave, onCancel }: { initial?: Partial<Program>
         <div><label className="text-xs font-bold text-slate-600 block mb-1">اسم التخصص (إنجليزي)</label>
           <input className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm" value={form.nameEnglish} onChange={e => setForm(p => ({ ...p, nameEnglish: e.target.value }))} /></div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         <div><label className="text-xs font-bold text-slate-600 block mb-1">المرحلة</label>
           <select className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm" value={form.degree} onChange={e => setForm(p => ({ ...p, degree: e.target.value }))}>
             {Object.entries(DEGREE_LABELS).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
           </select></div>
         <div><label className="text-xs font-bold text-slate-600 block mb-1">الساعات</label>
           <input type="number" className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm" value={form.creditHours} onChange={e => setForm(p => ({ ...p, creditHours: e.target.value }))} /></div>
-        <div><label className="text-xs font-bold text-slate-600 block mb-1">سعر الساعة (أردني JOD)</label>
+        <div><label className="text-xs font-bold text-slate-600 block mb-1">سعر أساسي (JOD)</label>
           <input type="number" className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm" value={form.jordanianFeePerHour} onChange={e => setForm(p => ({ ...p, jordanianFeePerHour: e.target.value }))} /></div>
-        <div><label className="text-xs font-bold text-slate-600 block mb-1">سعر الساعة (دولي {form.internationalFeeUnit})</label>
+        <div><label className="text-xs font-bold text-slate-600 block mb-1">سعر الموازي (JOD)</label>
+          <input type="number" className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm" value={form.parallelFeePerHour} onChange={e => setForm(p => ({ ...p, parallelFeePerHour: e.target.value }))} /></div>
+        <div><label className="text-xs font-bold text-slate-600 block mb-1">سعر دولي ({form.internationalFeeUnit})</label>
           <div className="flex gap-1">
             <input type="number" className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm" value={form.internationalFeePerHour} onChange={e => setForm(p => ({ ...p, internationalFeePerHour: e.target.value }))} />
             <select className="px-2 py-2 rounded-xl border border-slate-200 text-xs" value={form.internationalFeeUnit} onChange={e => setForm(p => ({ ...p, internationalFeeUnit: e.target.value }))}>
@@ -227,6 +234,42 @@ export default function ProgramsManagerClient({
     setSemesterFees(prev => prev.filter(f => f.id !== feeId));
   };
 
+  // Discount CRUD
+  const [expandingDiscounts, setExpandingDiscounts] = useState<string | null>(null);
+  const [editingDiscount, setEditingDiscount] = useState<string | null>(null);
+  const [addingDiscount, setAddingDiscount] = useState<string | null>(null);
+
+  const handleAddDiscount = async (programId: string, facultyId: string, data: any) => {
+    setSaving(true);
+    const res = await fetch(`/api/programs/${programId}/discounts`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data)
+    });
+    const discount = await res.json();
+    setFaculties(prev => prev.map(f => f.id === facultyId
+      ? { ...f, programs: f.programs.map(p => p.id === programId ? { ...p, discounts: [...(p.discounts || []), discount] } : p) } : f));
+    setAddingDiscount(null); setSaving(false);
+  };
+
+  const handleUpdateDiscount = async (discountId: string, programId: string, facultyId: string, data: any) => {
+    setSaving(true);
+    const res = await fetch(`/api/programs/${programId}/discounts`, {
+      method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...data, id: discountId })
+    });
+    const updated = await res.json();
+    setFaculties(prev => prev.map(f => f.id === facultyId
+      ? { ...f, programs: f.programs.map(p => p.id === programId ? { ...p, discounts: (p.discounts || []).map(d => d.id === discountId ? updated : d) } : p) } : f));
+    setEditingDiscount(null); setSaving(false);
+  };
+
+  const handleDeleteDiscount = async (discountId: string, programId: string, facultyId: string) => {
+    if (!confirm("هل تريد حذف هذا التخفيض؟")) return;
+    await fetch(`/api/programs/${programId}/discounts`, {
+      method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ discountId })
+    });
+    setFaculties(prev => prev.map(f => f.id === facultyId
+      ? { ...f, programs: f.programs.map(p => p.id === programId ? { ...p, discounts: (p.discounts || []).filter(d => d.id !== discountId) } : p) } : f));
+  };
+
   const degreeLevelLabels: Record<string, string> = {
     BACHELOR: "بكالوريوس عام", BACHELOR_DENTISTRY: "بكالوريوس طب أسنان",
     MASTER: "ماجستير", PHD: "دكتوراه"
@@ -340,6 +383,10 @@ export default function ProgramsManagerClient({
                                   <td className="px-4 py-3 text-center font-bold text-blue-600">{program.internationalFeePerHour ? `${program.internationalFeePerHour} ${program.internationalFeeUnit}` : "-"}</td>
                                   <td className="px-4 py-3 text-center">
                                     <div className="flex justify-center gap-1">
+                                      <button onClick={() => setExpandingDiscounts(expandingDiscounts === program.id ? null : program.id)}
+                                        className={`p-1.5 rounded-lg transition flex items-center gap-1 text-xs font-bold ${expandingDiscounts === program.id ? 'bg-brand-500 text-white' : 'text-slate-500 hover:bg-slate-100'}`}>
+                                        <Tag size={14} /> الخصومات {(program.discounts?.length || 0) > 0 && `(${program.discounts?.length})`}
+                                      </button>
                                       <button onClick={() => setEditingProgram(editingProgram === program.id ? null : program.id)}
                                         className="p-1.5 text-brand-600 hover:bg-brand-50 rounded-lg transition"><Edit2 size={14} /></button>
                                       <button onClick={() => handleDeleteProgram(program.id, faculty.id)}
@@ -347,6 +394,59 @@ export default function ProgramsManagerClient({
                                     </div>
                                   </td>
                                 </tr>
+                                {expandingDiscounts === program.id && (
+                                  <tr key={`discounts-${program.id}`} className="bg-slate-50/80">
+                                    <td colSpan={6} className="px-4 py-4 border-y border-brand-100">
+                                      <div className="pl-4 pr-12 border-r-2 border-brand-400">
+                                        <div className="flex justify-between items-center mb-3">
+                                          <h4 className="text-sm font-bold text-slate-800 flex items-center gap-1"><Tag size={16} className="text-brand-500" /> خصومات ومنح التخصص</h4>
+                                          <button onClick={() => setAddingDiscount(program.id)} className="text-xs font-bold text-brand-700 bg-brand-100 px-3 py-1.5 rounded-lg hover:bg-brand-200 transition flex items-center gap-1">
+                                            <Plus size={14} /> إضافة خصم جديد
+                                          </button>
+                                        </div>
+                                        
+                                        {(program.discounts || []).length > 0 ? (
+                                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                            {program.discounts?.map(discount => (
+                                              editingDiscount === discount.id ? (
+                                                <div className="col-span-full" key={`edit-disc-${discount.id}`}>
+                                                  <DiscountForm initial={discount} programId={program.id}
+                                                    onSave={(d) => handleUpdateDiscount(discount.id, program.id, faculty.id, d)}
+                                                    onCancel={() => setEditingDiscount(null)} />
+                                                </div>
+                                              ) : (
+                                                <div key={discount.id} className="bg-white p-3 rounded-xl border border-slate-200 shadow-sm relative group">
+                                                  <div className="flex justify-between items-start mb-1">
+                                                    <span className="text-xs font-black text-brand-600 bg-brand-50 px-2 py-0.5 rounded-md">المعدل: {discount.minGPA}% - {discount.maxGPA}%</span>
+                                                    <div className="opacity-0 group-hover:opacity-100 transition flex gap-1">
+                                                      <button onClick={() => setEditingDiscount(discount.id)} className="text-slate-400 hover:text-brand-600"><Edit2 size={12} /></button>
+                                                      <button onClick={() => handleDeleteDiscount(discount.id, program.id, faculty.id)} className="text-slate-400 hover:text-red-500"><Trash2 size={12} /></button>
+                                                    </div>
+                                                  </div>
+                                                  <p className="text-sm font-bold text-slate-800 my-1">
+                                                    تخفيض: <span className="text-emerald-600">{discount.discountAmount} {discount.discountType === "PERCENTAGE" ? "%" : "دينار/ساعة"}</span>
+                                                  </p>
+                                                  {discount.labelArabic && <p className="text-xs text-slate-500 font-semibold">{discount.labelArabic}</p>}
+                                                  <p className="text-[10px] text-slate-400 mt-2 font-bold bg-slate-100 inline-block px-1.5 rounded">
+                                                    الطلبة: {discount.appliesTo === "JORDANIAN" ? "أردنيين" : discount.appliesTo === "INTERNATIONAL" ? "دوليين" : "الجميع"}
+                                                  </p>
+                                                </div>
+                                              )
+                                            ))}
+                                          </div>
+                                        ) : (
+                                          <p className="text-xs text-slate-400 font-semibold py-2">لا توجد خصومات مضافة لهذا التخصص حالياً.</p>
+                                        )}
+
+                                        {addingDiscount === program.id && (
+                                          <DiscountForm programId={program.id}
+                                            onSave={(d) => handleAddDiscount(program.id, faculty.id, d)}
+                                            onCancel={() => setAddingDiscount(null)} />
+                                        )}
+                                      </div>
+                                    </td>
+                                  </tr>
+                                )}
                                 {editingProgram === program.id && (
                                   <tr key={`edit-${program.id}`}>
                                     <td colSpan={6} className="px-4 pb-3">

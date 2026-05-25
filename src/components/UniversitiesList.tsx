@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { GraduationCap, MapPin, Trophy, BookOpen, ArrowLeft } from "lucide-react";
 
 type University = {
@@ -53,7 +54,7 @@ function UniversityCard({ uni, locale, rank }: { uni: University; locale: string
             </div>
             {/* Logo or Name */}
             {uni.logoUrl ? (
-              <img src={uni.logoUrl} alt={name} className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
+              <Image src={uni.logoUrl} alt={name} width={200} height={200} className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110" />
             ) : (
               <GraduationCap size={52} className="text-slate-300 group-hover:text-brand-400 transition-colors duration-300" />
             )}

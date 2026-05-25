@@ -13,6 +13,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
         degree: body.degree,
         creditHours: body.creditHours ? parseInt(body.creditHours) : null,
         jordanianFeePerHour: body.jordanianFeePerHour ? parseFloat(body.jordanianFeePerHour) : null,
+        parallelFeePerHour: body.parallelFeePerHour ? parseFloat(body.parallelFeePerHour) : null,
         internationalFeePerHour: body.internationalFeePerHour ? parseFloat(body.internationalFeePerHour) : null,
         internationalFeeUnit: body.internationalFeeUnit || "USD",
         sortOrder: body.sortOrder

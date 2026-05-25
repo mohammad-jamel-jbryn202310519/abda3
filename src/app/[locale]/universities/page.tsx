@@ -1,11 +1,9 @@
-import { prisma } from "@/lib/prisma";
+import { getCachedUniversities } from "@/lib/cache";
 import UniversitiesList from "@/components/UniversitiesList";
 import Navbar from "@/components/Navbar";
 
 export default async function UniversitiesPage({ params }: { params: { locale: string } }) {
-  const universities = await prisma.university.findMany({ 
-    orderBy: { sortOrder: "asc" } 
-  });
+  const universities = await getCachedUniversities();
 
   return (
     <main className="min-h-screen bg-slate-50">

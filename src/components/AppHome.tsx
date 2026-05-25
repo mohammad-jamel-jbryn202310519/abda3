@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { GraduationCap, FileText, Info } from "lucide-react";
 
 export default function AppHome({ locale }: { locale: string }) {
@@ -74,10 +75,13 @@ export default function AppHome({ locale }: { locale: string }) {
           variants={itemVariants}
           className="mb-5 p-4 bg-white/90 rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-200/60 backdrop-blur-md flex items-center justify-center"
         >
-          <img 
+          <Image 
             src="/logo.png" 
-            alt="Ibda3 Al-Khalij Logo" 
+            alt="Ibda3 Al-Khalij Logo"
+            width={224}
+            height={224} 
             className="w-40 h-40 md:w-56 md:h-56 object-contain" 
+            priority
           />
         </motion.div>
 

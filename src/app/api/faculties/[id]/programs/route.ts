@@ -13,6 +13,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
         creditHours: body.creditHours ? parseInt(body.creditHours) : null,
         facultyId: params.id,
         jordanianFeePerHour: body.jordanianFeePerHour ? parseFloat(body.jordanianFeePerHour) : null,
+        parallelFeePerHour: body.parallelFeePerHour ? parseFloat(body.parallelFeePerHour) : null,
         internationalFeePerHour: body.internationalFeePerHour ? parseFloat(body.internationalFeePerHour) : null,
         internationalFeeUnit: body.internationalFeeUnit || "USD",
         sortOrder: body.sortOrder || 0

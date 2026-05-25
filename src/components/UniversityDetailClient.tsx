@@ -6,11 +6,18 @@ import {
   MapPin, GraduationCap, FileText, DollarSign, Share2, Compass, ExternalLink,
   Check, X, MessageCircle, Copy, Search, ChevronDown, ChevronUp, Info
 } from "lucide-react";
+import Image from "next/image";
 
+type Discount = {
+  id: string; minGPA: number; maxGPA: number; discountAmount: number;
+  discountType: string; labelArabic: string; appliesTo: string;
+};
 type Program = {
   id: string; nameArabic: string; nameEnglish: string; degree: string;
   creditHours: number | null; jordanianFeePerHour: number | null;
+  parallelFeePerHour: number | null;
   internationalFeePerHour: number | null; internationalFeeUnit: string;
+  discounts?: Discount[];
 };
 type Faculty = { id: string; nameArabic: string; nameEnglish: string; programs: Program[]; };
 type SemesterFee = {
@@ -148,7 +155,7 @@ export default function UniversityDetailClient({ uni, locale }: { uni: Universit
           onClick={() => setIsLogoModalOpen(true)}
           className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-3xl bg-white p-2 border-4 border-brand-500 shadow-2xl flex items-center justify-center cursor-pointer group relative overflow-hidden shrink-0">
           {uni.logoUrl ? (
-            <img src={uni.logoUrl} alt={name} className="max-w-full max-h-full object-contain" />
+            <Image src={uni.logoUrl} alt={name} width={200} height={200} className="max-w-full max-h-full object-contain" />
           ) : (
             <GraduationCap size={56} className="text-brand-500" />
           )}
@@ -172,13 +179,21 @@ export default function UniversityDetailClient({ uni, locale }: { uni: Universit
                     <p className="text-xs text-slate-400 font-semibold mt-0.5">{isAr ? "الرسوم الدراسية للعام الأكاديمي 2025/2026" : "Academic Year 2025/2026"}</p>
                   </div>
                 </div>
-                <div className="relative">
-                  <input type="text" placeholder={isAr ? "ابحث عن تخصص..." : "Search major..."}
-                    value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
-                    className="w-full sm:w-56 pl-4 pr-10 py-2.5 rounded-2xl bg-slate-100 border-0 text-sm font-semibold outline-none ring-1 ring-slate-200 focus:ring-2 focus:ring-brand-500 transition" />
-                  <Search size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <div className="flex items-center gap-2 relative">
+                  <div className="relative">
+                    <input type="text" placeholder={isAr ? "ابحث عن تخصص..." : "Search major..."}
+                      value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                      className="w-full sm:w-48 pl-4 pr-10 py-2.5 rounded-2xl bg-slate-100 border-0 text-sm font-semibold outline-none ring-1 ring-slate-200 focus:ring-2 focus:ring-brand-500 transition" />
+                    <Search size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                  </div>
                 </div>
               </div>
+              {isGov && (
+                <div className="mb-4 bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm font-semibold text-slate-600 flex items-center gap-2">
+                  <Info size={16} className="text-slate-400" />
+                  الرسوم في الجامعات الحكومية ثابتة وموحدة ولا تخضع لنظام المنح بناءً على المعدل. يتم القبول ضمن برنامج التنافس أو الموازي.
+                </div>
+              )}
               {/* Degree Tabs */}
               <div className="flex gap-1 overflow-x-auto pb-0 no-scrollbar">
                 {availableDegrees.map(tab => (
@@ -212,35 +227,92 @@ export default function UniversityDetailClient({ uni, locale }: { uni: Universit
                           {/* Programs */}
                           {isExpanded && (
                             <div className="overflow-x-auto">
-                              <table className="w-full min-w-[520px] text-sm border-collapse">
-                                <thead className="border-b border-slate-100">
-                                  <tr className="text-slate-500 font-bold text-xs">
-                                    <th className="px-4 py-2.5 text-right">التخصص</th>
-                                    <th className="px-4 py-2.5 text-center">الساعات</th>
-                                    <th className="px-4 py-2.5 text-center">أردني (JOD/ساعة)</th>
-                                    <th className="px-4 py-2.5 text-center">دولي</th>
-                                    <th className="px-4 py-2.5 text-center">تسجيل</th>
+                              <table className="w-full min-w-[700px] text-sm border-collapse">
+                                <thead className="border-b border-slate-100 bg-slate-50/50">
+                                  <tr className="text-slate-600 font-bold text-xs">
+                                    <th className="px-4 py-3 text-right border-x border-slate-100">التخصص</th>
+                                    <th className="px-3 py-3 text-center border-r border-slate-100">الساعات</th>
+                                    <th className="px-3 py-3 text-center border-r border-slate-100">السعر الأساسي<br/>(JOD/ساعة)</th>
+                                    {!isGov && <th className="px-4 py-3 text-right border-r border-slate-100">الخصومات حسب المعدل</th>}
+                                    {isGov && <th className="px-3 py-3 text-center border-r border-slate-100">الموازي<br/>(JOD/ساعة)</th>}
+                                    <th className="px-3 py-3 text-center border-r border-slate-100">السعر الدولي<br/>(USD/ساعة)</th>
+                                    <th className="px-4 py-3 text-center border-l border-slate-100">تسجيل</th>
                                   </tr>
                                 </thead>
-                                <tbody className="divide-y divide-slate-50">
+                                <tbody className="divide-y divide-slate-100">
                                   {faculty.programs.map(prog => {
                                     const waText = encodeURIComponent(isAr
                                       ? `مرحباً شركة إبداع الخليج، أود التقديم في تخصص: ${prog.nameArabic} بجامعة: ${name}.`
                                       : `Hello Ibda3 Al-Khalij, I'd like to apply for: ${prog.nameEnglish} at ${name}.`);
+                                      
                                     return (
-                                      <tr key={prog.id} className="hover:bg-slate-50/50 transition">
-                                        <td className="px-4 py-3">
+                                      <tr key={prog.id} className="hover:bg-slate-50 transition border-b border-slate-100">
+                                        <td className="px-4 py-4 border-x border-slate-100">
                                           <div className="font-bold text-slate-900 text-sm">{isAr ? prog.nameArabic : prog.nameEnglish}</div>
-                                          <div className="text-[11px] text-slate-400 font-semibold mt-0.5">{isAr ? faculty.nameArabic : faculty.nameEnglish}</div>
+                                          <div className="text-[11px] text-slate-500 font-semibold mt-1">{isAr ? faculty.nameArabic : faculty.nameEnglish}</div>
                                         </td>
-                                        <td className="px-4 py-3 text-center text-slate-500 font-semibold">{prog.creditHours || "-"}</td>
-                                        <td className="px-4 py-3 text-center font-extrabold text-emerald-600">{prog.jordanianFeePerHour ? `${prog.jordanianFeePerHour}` : "-"}</td>
-                                        <td className="px-4 py-3 text-center font-extrabold text-blue-600">{prog.internationalFeePerHour ? `${prog.internationalFeePerHour} ${prog.internationalFeeUnit}` : "-"}</td>
-                                        <td className="px-4 py-3 text-center">
+                                        <td className="px-3 py-4 text-center text-slate-500 font-semibold border-r border-slate-100">{prog.creditHours || "-"}</td>
+                                        
+                                        {/* Base Price (Jordanian) */}
+                                        <td className="px-3 py-4 text-center font-extrabold text-slate-700 border-r border-slate-100">
+                                          {prog.jordanianFeePerHour ? `${prog.jordanianFeePerHour}` : "-"}
+                                        </td>
+                                        
+                                        {/* Discounts Column (Only for Private) */}
+                                        {!isGov && (
+                                          <td className="px-4 py-4 border-r border-slate-100 align-top">
+                                            {prog.discounts && prog.discounts.length > 0 ? (
+                                              <div className="flex flex-col gap-1.5">
+                                                {prog.discounts.sort((a, b) => b.minGPA - a.minGPA).map(d => {
+                                                  // Calculate the final price based on the percentage discount
+                                                  const basePrice = d.appliesTo === "INTERNATIONAL" ? prog.internationalFeePerHour : prog.jordanianFeePerHour;
+                                                  let finalPriceEl = null;
+                                                  if (basePrice) {
+                                                    const finalPrice = Math.max(0, basePrice - (basePrice * (d.discountAmount / 100)));
+                                                    const currency = d.appliesTo === "INTERNATIONAL" ? prog.internationalFeeUnit : "JOD";
+                                                    finalPriceEl = <span className="font-extrabold text-brand-600 whitespace-nowrap mr-1">➔ {Number(finalPrice.toFixed(2))} {currency}</span>;
+                                                  }
+                                                  
+                                                  return (
+                                                    <div key={d.id} className="text-xs flex items-center flex-wrap gap-x-1 border-b border-slate-100/50 pb-1 last:border-0 last:pb-0">
+                                                      <span className="font-bold text-slate-700 min-w-[70px] whitespace-nowrap">
+                                                        {d.maxGPA === 100 ? `من ${d.minGPA}% فأعلى` : `من ${d.minGPA}% لـ ${d.maxGPA}%`}
+                                                      </span>
+                                                      <span className="text-slate-500 whitespace-nowrap">
+                                                        : خصم <span className="font-bold text-emerald-600">{d.discountAmount}%</span>
+                                                      </span>
+                                                      {finalPriceEl}
+                                                      {d.appliesTo === "INTERNATIONAL" && <span className="text-[9px] bg-blue-100 text-blue-700 px-1 rounded-sm mr-1">للوافدين</span>}
+                                                    </div>
+                                                  );
+                                                })}
+                                              </div>
+                                            ) : (
+                                              <span className="text-xs text-slate-400 font-semibold italic">لا يوجد خصومات</span>
+                                            )}
+                                          </td>
+                                        )}
+
+                                        {/* Parallel Price (Only for Gov) */}
+                                        {isGov && (
+                                          <td className="px-3 py-4 text-center font-extrabold text-amber-600 border-r border-slate-100">
+                                            {prog.parallelFeePerHour ? `${prog.parallelFeePerHour}` : "-"}
+                                          </td>
+                                        )}
+
+                                        {/* International Price */}
+                                        <td className="px-3 py-4 text-center border-r border-slate-100">
+                                          {prog.internationalFeePerHour ? (
+                                            <span className="text-blue-600 font-extrabold">{prog.internationalFeePerHour} <span className="text-xs font-semibold">{prog.internationalFeeUnit}</span></span>
+                                          ) : "-"}
+                                        </td>
+
+                                        {/* Apply Button */}
+                                        <td className="px-4 py-4 text-center border-l border-slate-100">
                                           <a href={`https://wa.me/962795944359?text=${waText}`} target="_blank" rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-brand-500 text-slate-950 text-xs font-black hover:bg-brand-600 transition hover:scale-105 active:scale-95">
-                                            <MessageCircle size={12} />
-                                            <span>{isAr ? "سجل" : "Apply"}</span>
+                                            className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-brand-500 text-slate-950 text-xs font-black hover:bg-brand-600 transition hover:scale-105 active:scale-95 shadow-sm">
+                                            <MessageCircle size={14} />
+                                            <span>{isAr ? "سجل الآن" : "Apply"}</span>
                                           </a>
                                         </td>
                                       </tr>
@@ -466,7 +538,7 @@ export default function UniversityDetailClient({ uni, locale }: { uni: Universit
                 className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition"><X size={18} /></button>
               <div className="p-8 text-center flex flex-col items-center">
                 <div className="w-32 h-32 rounded-full bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5">
-                  {uni.logoUrl ? <img src={uni.logoUrl} alt={name} className="max-w-full max-h-full object-contain" /> : <GraduationCap size={56} className="text-brand-500" />}
+                  {uni.logoUrl ? <Image src={uni.logoUrl} alt={name} width={200} height={200} className="max-w-full max-h-full object-contain" /> : <GraduationCap size={56} className="text-brand-500" />}
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-1">{name}</h3>
                 <p className="text-sm font-semibold text-slate-400 mb-6">{isAr ? "شريك معتمد لدى إبداع الخليج" : "Accredited Educational Partner"}</p>

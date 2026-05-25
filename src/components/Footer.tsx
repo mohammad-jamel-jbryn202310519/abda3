@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface FooterProps {
   locale: string;
@@ -11,7 +12,7 @@ export default function Footer({ locale }: FooterProps) {
         <div className="grid gap-6 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <img src="/logo.png" alt="Ibda3 Al-Khalij Logo" className="h-12 w-auto object-contain brightness-0 invert" />
+              <Image src="/logo.png" alt="Ibda3 Al-Khalij Logo" width={48} height={48} className="h-12 w-auto object-contain brightness-0 invert" />
               <h2 className="text-xl font-bold text-white">إبداع الخليج</h2>
             </div>
             <p className="max-w-xs text-sm text-slate-400">شريككم الموثوق للخدمات الطلابية وتسهيل القبول في جامعات الأردن للطلاب الدوليين.</p>

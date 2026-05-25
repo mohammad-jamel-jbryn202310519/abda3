@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, Search } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -19,7 +20,7 @@ export default function Navbar({ locale }: NavbarProps) {
       <div className="container flex items-center justify-between py-4">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center gap-3 shrink-0 py-1">
-          <img src="/logo.png" alt="Ibda3 Al-Khalij Logo" className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+          <Image src="/logo.png" alt="Ibda3 Al-Khalij Logo" width={64} height={64} className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105" priority />
           <span className="text-xl font-extrabold text-slate-800 tracking-wide hidden xs:block">إبداع الخليج</span>
         </Link>
         
