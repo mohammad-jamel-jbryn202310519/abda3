@@ -8,7 +8,7 @@ export const getCachedUniversities = unstable_cache(
     });
   },
   ["universities-list"],
-  { revalidate: 0, tags: ["universities"] } // Bypass cache during development
+  { revalidate: 1, tags: ["universities"] } // Bypass cache during development (1s)
 );
 
 export const getCachedUniversityDetails = unstable_cache(
@@ -30,5 +30,5 @@ export const getCachedUniversityDetails = unstable_cache(
     });
   },
   ["university-details"],
-  { revalidate: 0, tags: ["university-details"] } // Bypass cache during development
+  { revalidate: 1, tags: ["university-details"] } // Bypass cache during development (1s)
 );
